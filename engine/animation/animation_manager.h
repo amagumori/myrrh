@@ -1,0 +1,11 @@
+
+namespace Engine {
+
+  class AnimationManager {
+
+
+  };
+
+
+
+};
