@@ -1,3 +1,5 @@
+#include "Texture.h"
+#include "../shaders/Shader.h"
 
 namespace Engine {
 
@@ -13,7 +15,7 @@ namespace Engine {
     
     static const int MAX_NAME_LENGTH = 32;
     char name[MAX_NAME_LENGTH + 1];
-    uint32_T name_hash;
+    uint32_t name_hash;
     Type type;
     bgfx::UniformHandle handle;
     union {
