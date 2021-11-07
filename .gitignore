@@ -1,3 +1,4 @@
 meshes/
 src/*.o
 obj/
+build/

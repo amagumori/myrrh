@@ -1,5 +1,8 @@
 #include <cmath>
 
+// ISSUE: should be portable way to check NaN but will break under -ffast-math
+#define isnan(x) ( (x) != (x) )
+
 /* CUIDADO
  * THIS FILE IS PERFORMANCE SENSITIVE
  * ALL OF THESE THINGS NEED TO HAPPEN FAST

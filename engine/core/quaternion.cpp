@@ -110,7 +110,7 @@ Quaternion Quaternion::inverse() const {
   float normalized = _w*_w + _x*_x + _y*_y + _z*_z;
   if (normalized > 0.0) {
     float invertedNorm = 1.0f/normalized;
-    return Quaternion::Quaternion(_w*invertedNorm, -_x*invertedNorm, -_y*invertedNorm, -_z*invertedNorm);
+    return Quaternion(_w*invertedNorm, -_x*invertedNorm, -_y*invertedNorm, -_z*invertedNorm);
   } else {
     // this is defined as a zeroed quaternion..
     return Quaternion::ZERO;

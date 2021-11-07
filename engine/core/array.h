@@ -1,7 +1,8 @@
 #pragma once
 
 #include "allocator.h"
-#include "assert.h"
+//#include "assert.h"
+#include <cassert>
 #include <new>
 #include <type_traits>
 #include <cstring>
@@ -125,7 +126,7 @@ template <typename T> class Array<T, false> {
       if (_size == _capacity) {
         grow();
       }
-      new ((char*)(_data + size)) T(std::forward<Params>(params)...);
+      new ((char*)(_data + _size)) T(std::forward<Params>(params)...);
       ++_size;
       return _data[_size - 1];
     }
@@ -181,12 +182,12 @@ template <typename T> class Array<T, false> {
     // just for these assertions.
 
     const T& operator[](int index) const {
-      ASSERT(index >= 0 && index < _size);
+      assert(index >= 0 && index < _size);
       return _data[index];
     }
  
     T& operator[](int index) {
-      ASSERT(index >= 0 && index < _size);
+      assert(index >= 0 && index < _size);
       return _data[index];
     }
 
@@ -257,7 +258,7 @@ template <typename T> class Array<T, true> {
     }
 
     void swap(Array<T, true>& rhs) {
-      ASSERT(&rhs._allocator == &_allocator);
+      assert(&rhs._allocator == &_allocator);
 
       int i = rhs._capacity;
       rhs._capacity = _capacity;
@@ -357,7 +358,7 @@ template <typename T> class Array<T, true> {
     const T& back() const { return _data[_size - 1]; }
 
     T& back() { 
-      ASSERT(_size > 0);
+      assert(_size > 0);
       return _data[_size - 1]; 
     }
 
@@ -388,12 +389,12 @@ template <typename T> class Array<T, true> {
     // just for these assertions.
 
     const T& operator[](int index) const {
-      ASSERT(index >= 0 && index < _size);
+      assert(index >= 0 && index < _size);
       return _data[index];
     }
  
     T& operator[](int index) {
-      ASSERT(index >= 0 && index < _size);
+      assert(index >= 0 && index < _size);
       return _data[index];
     }
 
